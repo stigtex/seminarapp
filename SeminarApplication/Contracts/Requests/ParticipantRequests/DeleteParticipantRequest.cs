@@ -1,6 +1,6 @@
 namespace SeminarApplication.Contracts.Requests.ParticipantRequests;
 
-public class DeleteParticipant
+public class DeleteParticipantRequest
 {
     public int Id { get; init; }
 }

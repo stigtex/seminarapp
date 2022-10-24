@@ -9,6 +9,18 @@ using SeminarApplication.Validation;
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CORSPolicy",
+        corsPolicyBuilder =>
+        {
+            corsPolicyBuilder
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:4200");
+        });
+});
+
 builder.Services.AddFastEndpoints();
 builder.Services.AddSwaggerDoc();
 
@@ -28,6 +40,8 @@ var app = builder.Build();
 
 app.UseOpenApi();
 app.UseSwaggerUi3(s => s.ConfigureDefaults());
+
+app.UseCors("CORSPolicy");
 
 app.UseMiddleware<ValidationExceptionMiddleware>();
 app.UseFastEndpoints(x =>

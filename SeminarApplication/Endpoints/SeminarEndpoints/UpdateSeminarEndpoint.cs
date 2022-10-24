@@ -8,7 +8,7 @@ using SeminarApplication.Services;
 namespace SeminarApplication.Endpoints.SeminarEndpoints;
 
 [HttpPut("seminars/{id:int}"), AllowAnonymous]
-public class UpdateSeminarEndpoint  : Endpoint<UpdateSeminar, SeminarResponse>
+public class UpdateSeminarEndpoint  : Endpoint<UpdateSeminarRequest, SeminarResponse>
 {
     private readonly ISeminarService _seminarService;
     
@@ -17,7 +17,7 @@ public class UpdateSeminarEndpoint  : Endpoint<UpdateSeminar, SeminarResponse>
         _seminarService = seminarService;
     }
     
-    public override async Task HandleAsync(UpdateSeminar req, CancellationToken ct)
+    public override async Task HandleAsync(UpdateSeminarRequest req, CancellationToken ct)
     {
         var existingSeminar = await _seminarService.GetAsync(req.Id);
 

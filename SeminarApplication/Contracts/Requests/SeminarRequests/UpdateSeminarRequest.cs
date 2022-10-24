@@ -1,6 +1,6 @@
 namespace SeminarApplication.Contracts.Requests.SeminarRequests;
 
-public class UpdateSeminar
+public class UpdateSeminarRequest
 {
     public int Id { get; init; }
     public string SeminarName { get; init; } = default!;

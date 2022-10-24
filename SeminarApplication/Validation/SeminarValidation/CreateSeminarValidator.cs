@@ -3,7 +3,7 @@ using SeminarApplication.Contracts.Requests.SeminarRequests;
 
 namespace SeminarApplication.Validation.SeminarValidation;
 
-public class CreateSeminarValidator : AbstractValidator<CreateSeminar>
+public class CreateSeminarValidator : AbstractValidator<CreateSeminarRequest>
 {
     public CreateSeminarValidator()
     {

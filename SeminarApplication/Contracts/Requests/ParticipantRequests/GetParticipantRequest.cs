@@ -1,6 +1,6 @@
 namespace SeminarApplication.Contracts.Requests.ParticipantRequests;
 
-public class GetParticipant
+public class GetParticipantRequest
 {
     public int Id { get; init; }
 }

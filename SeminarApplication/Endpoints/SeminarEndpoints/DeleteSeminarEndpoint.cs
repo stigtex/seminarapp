@@ -6,7 +6,7 @@ using SeminarApplication.Services;
 namespace SeminarApplication.Endpoints.SeminarEndpoints;
 
 [HttpPut("seminars/delete/{id:int}"), AllowAnonymous]
-public class DeleteSeminarEndpoint : Endpoint<DeleteSeminar>
+public class DeleteSeminarEndpoint : Endpoint<DeleteSeminarRequest>
 {
     private readonly ISeminarService _seminarService;
     
@@ -15,7 +15,7 @@ public class DeleteSeminarEndpoint : Endpoint<DeleteSeminar>
         _seminarService = seminarService;
     }
     
-    public override async Task HandleAsync(DeleteSeminar req, CancellationToken ct)
+    public override async Task HandleAsync(DeleteSeminarRequest req, CancellationToken ct)
     {
         var deleted = await _seminarService.DeleteAsync(req.Id);
         if (!deleted)

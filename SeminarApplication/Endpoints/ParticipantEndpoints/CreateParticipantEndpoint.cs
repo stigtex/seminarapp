@@ -8,7 +8,7 @@ using SeminarApplication.Services;
 namespace SeminarApplication.Endpoints.ParticipantEndpoints;
 
 [HttpPost("participants"), AllowAnonymous]
-public class CreateParticipantEndpoint : Endpoint<CreateParticipant, ParticipantResponse>
+public class CreateParticipantEndpoint : Endpoint<CreateParticipantRequest, ParticipantResponse>
 {
     private readonly IParticipantService _participantService;
     
@@ -17,7 +17,7 @@ public class CreateParticipantEndpoint : Endpoint<CreateParticipant, Participant
         _participantService = participantService;
     }
 
-    public override async Task HandleAsync(CreateParticipant req, CancellationToken ct)
+    public override async Task HandleAsync(CreateParticipantRequest req, CancellationToken ct)
     {
         var participant = req.ToParticipant();
 

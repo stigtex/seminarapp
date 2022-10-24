@@ -8,7 +8,7 @@ namespace SeminarApplication.Mapping;
 
 public static class ContractToDomainMapper
 {
-    public static Seminar ToSeminar(this CreateSeminar request)
+    public static Seminar ToSeminar(this CreateSeminarRequest request)
     {
         return new Seminar
         {
@@ -18,7 +18,7 @@ public static class ContractToDomainMapper
         };
     }
     
-    public static Seminar ToSeminar(this UpdateSeminar request)
+    public static Seminar ToSeminar(this UpdateSeminarRequest request)
     {
         return new Seminar
         {
@@ -29,7 +29,7 @@ public static class ContractToDomainMapper
         };
     }
 
-    public static Participant ToParticipant(this CreateParticipant request)
+    public static Participant ToParticipant(this CreateParticipantRequest request)
     {
         return new Participant
         {
@@ -39,7 +39,7 @@ public static class ContractToDomainMapper
         };
     }
     
-    public static Participant ToParticipant(this UpdateParticipant request)
+    public static Participant ToParticipant(this UpdateParticipantRequest request)
     {
         return new Participant
         {
