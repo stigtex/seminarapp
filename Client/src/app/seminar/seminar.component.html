@@ -1,0 +1,40 @@
+<div class="container d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <h1>Seminars</h1>
+  
+    <button class="btn btn-lg btn-dark mt-3" (click)="onClickBtnCreateNewSeminar()">
+      Create New Seminar
+    </button>
+  
+    <div class="mh-500px w-100 overflow-auto d-inline-block mt-5 shadow">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let seminar of seminarService.allSeminars; index as i">
+          <th scope="row">{{ seminar.id }}</th>
+          <td>{{ seminar.seminarName }}</td>
+          <td>{{ seminar.startDate | date:'short' }}</td>
+          <td>{{ seminar.endDate | date:'short' }}</td>
+          <td>
+            <button class="btn btn-lg btn-dark me-3" (click)="onClickBtnUpdateSeminar(seminar)">
+              Update
+            </button>
+            <button class="btn btn-lg btn-outline-dark me-3" (click)="onClickBtnDeleteSeminar(seminar)">
+              Delete
+            </button>
+            <button class="btn btn-lg btn-outline-dark">
+              Courses
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

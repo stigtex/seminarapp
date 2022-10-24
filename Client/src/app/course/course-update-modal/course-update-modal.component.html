@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <h4 class="modal-title">Create New Course</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="modal-body">
+      <div class="container">
+        <div class="form-group">
+            <label for="idInput">Course ID</label>
+            <input type="text" class="form-control" id="idInput" formControlName="id" readonly>
+          </div>
+        <div class="form-group">
+            <label for="courseNameInput">Course Name</label>
+            <input class="form-control" id="courseNameInput" placeholder="Course" formControlName="courseName">
+        </div>
+        <div class="form-group mt-4">
+            <label for="instFirstNameInput">Instructor First Name</label>
+            <input class="form-control" id="instFirstNameInput" placeholder="First" formControlName="instFirstName">
+        </div>
+        <div class="form-group mt-4">
+            <label for="instLastNameInput">Instructor Last Name</label>
+            <input class="form-control" id="instLastNameInput" placeholder="Last" formControlName="instLastName">
+        </div>
+        <div class="form-group mt-4">
+            <label for="roomInput">Room Name</label>
+            <input class="form-control" id="roomInput" placeholder="Room" formControlName="room">
+        </div>
+        <div class="form-group mt-4">
+            <label for="startDateInput">Start Date</label>
+            <input type="date" class="form-control" id="startDateInput" formControlName="startDate">
+        </div>
+        <div class="form-group mt-4">
+            <label for="endDateInput">End Date</label>
+            <input type="date" class="form-control" id="endDateInput" formControlName="endDate">
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal-footer">
+      <p class="text-success" *ngIf="updateSuccessful">Course created!</p>
+      <p class="text-danger" *ngIf="updateFailed">Failed to create the course. Check the console for details.</p>
+  
+      <button class="btn btn-lg btn-dark" type="submit" *ngIf="updateSuccessful === false">Create</button>
+      <button type="button" class="btn btn-lg btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+  </form>

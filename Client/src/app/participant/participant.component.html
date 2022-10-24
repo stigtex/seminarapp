@@ -1,0 +1,37 @@
+<div class="container d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <h1>Participants</h1>
+  
+    <button class="btn btn-lg btn-dark mt-3" (click)="onClickBtnCreateNewParticipant()">
+      Create New Participant
+    </button>
+  
+    <div class="mh-500px w-100 overflow-auto d-inline-block mt-5 shadow">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email Address</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let participant of participantService.allParticipants; index as i">
+          <th scope="row">{{ participant.id }}</th>
+          <td>{{ participant.firstName }}</td>
+          <td>{{ participant.lastName }}</td>
+          <td>{{ participant.emailAddress }}</td>
+          <td>
+            <button class="btn btn-lg btn-dark me-3" (click)="onClickBtnUpdateParticipant(participant)">
+              Update
+            </button>
+            <button class="btn btn-lg btn-outline-dark me-3" (click)="onClickBtnDeleteParticipant(participant)">
+              Delete
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

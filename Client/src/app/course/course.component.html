@@ -1,0 +1,46 @@
+<div class="container d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <h1>Courses</h1>
+  
+    <button class="btn btn-lg btn-dark mt-3" (click)="onClickBtnCreateNewCourse()">
+      Create New Course
+    </button>
+  
+    <div class="mh-500px w-100 overflow-auto d-inline-block mt-5 shadow">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Instructor First Name</th>
+            <th scope="col">Instructor Last Name</th>
+            <th scope="col">Room Name</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let course of courseService.allCourses; index as i">
+          <th scope="row">{{ course.id }}</th>
+          <td>{{ course.courseName }}</td>
+          <td>{{ course.instructorFirstName }}</td>
+          <td>{{ course.instructorLastName }}</td>
+          <td>{{ course.roomName }}</td>
+          <td>{{ course.startDate | date:'short' }}</td>
+          <td>{{ course.endDate | date:'short' }}</td>
+          <td>
+            <button class="btn btn-lg btn-dark me-3" (click)="onClickBtnUpdateCourse(course)">
+              Update
+            </button>
+            <button class="btn btn-lg btn-outline-dark me-3" (click)="onClickBtnDeleteCourse(course)">
+              Delete
+            </button>
+            <button class="btn btn-lg btn-outline-dark me-3">
+              Participants
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

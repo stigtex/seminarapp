@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title">Create New Seminar</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div class="modal-body">
+      <div class="container">
+        <div class="form-group">
+            <label for="nameInput">Seminar Name</label>
+            <input class="form-control" id="nameInput" placeholder="Seminar" formControlName="name">
+        </div>
+        <div class="form-group mt-4">
+            <label for="startDateInput">Start Date</label>
+            <input type="date" class="form-control" id="startDateInput" formControlName="startDate">
+        </div>
+        <div class="form-group mt-4">
+            <label for="endDateInput">End Date</label>
+            <input type="date" class="form-control" id="endDateInput" formControlName="endDate">
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal-footer">
+      <p class="text-success" *ngIf="createSuccessful">Seminar created!</p>
+      <p class="text-danger" *ngIf="createFailed">Failed to create the seminar. Check the console for details.</p>
+  
+      <button class="btn btn-lg btn-dark" type="submit" *ngIf="createSuccessful === false">Create</button>
+      <button type="button" class="btn btn-lg btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div>
+  </form>
